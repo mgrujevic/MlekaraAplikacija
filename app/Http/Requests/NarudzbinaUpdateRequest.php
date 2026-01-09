@@ -20,8 +20,8 @@ class NarudzbinaUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'proizvod_id' => ['required', 'integer', 'exists:proizvodi,id'],
-            'kupac_id' => ['required', 'integer', 'exists:kupci,id'],
+            'proizvod_id' => ['required', 'integer', 'exists:proizvods,id'],
+            'kupac_id' => ['required', 'integer', 'exists:kupacs,id'],
             'kolicina' => ['required', 'integer'],
             'datum' => ['required', 'date'],
             'status' => ['required', 'in:kreirana,u_obradi,isporucena,otkazana'],

@@ -20,7 +20,7 @@ class SerijaProizvodaStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'proizvod_id' => ['required', 'integer', 'exists:proizvodi,id'],
+            'proizvod_id' => ['required', 'integer', 'exists:proizvods,id'],
             'proizvedena_kolicina' => ['required', 'integer'],
             'datum_proizvodnje' => ['required'],
         ];

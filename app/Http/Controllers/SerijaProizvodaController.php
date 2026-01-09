@@ -8,6 +8,7 @@ use App\Models\SerijaProizvoda;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Proizvod;
 
 class SerijaProizvodaController extends Controller
 {
@@ -22,7 +23,9 @@ class SerijaProizvodaController extends Controller
 
     public function create(Request $request)
     {
-        return view('serijaProizvoda.create');
+        $proizvodi = Proizvod::all();
+
+        return view('serijaProizvoda.create', compact('proizvodi'));
     }
 
     public function store(SerijaProizvodaStoreRequest $request)
@@ -31,7 +34,7 @@ class SerijaProizvodaController extends Controller
 
         $request->session()->flash('serijaProizvoda.id', $serijaProizvoda->id);
 
-        return redirect()->route('serijaProizvodas.index');
+        return redirect()->route('admin.serije-proizvoda.index');
     }
 
     public function show(Request $request, SerijaProizvoda $serijaProizvoda)

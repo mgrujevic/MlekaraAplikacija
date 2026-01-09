@@ -31,7 +31,7 @@ class KupacController extends Controller
 
         $request->session()->flash('kupac.id', $kupac->id);
 
-        return redirect()->route('kupacs.index');
+        return redirect()->route('admin.kupci.index');
     }
 
     public function show(Request $request, Kupac $kupac)

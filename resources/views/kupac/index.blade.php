@@ -28,8 +28,8 @@
             <thead class="bg-gray-100">
                 <tr>
                     <th class="border px-3 py-2 text-left">ID</th>
-                    <th class="border px-3 py-2 text-left">Ime</th>
-                    <th class="border px-3 py-2 text-left">Prezime</th>
+                    <th class="border px-3 py-2 text-left">Naziv</th>
+                    <th class="border px-3 py-2 text-left">Adresa</th>
                     <th class="border px-3 py-2 text-left">Telefon</th>
                     <th class="border px-3 py-2 text-left">Email</th>
                     <th class="border px-3 py-2 text-left">Akcije</th>
@@ -39,9 +39,9 @@
                 @forelse($kupacs as $kupac)
                     <tr class="hover:bg-gray-50">
                         <td class="border px-3 py-2">{{ $kupac->id }}</td>
-                        <td class="border px-3 py-2">{{ $kupac->ime }}</td>
-                        <td class="border px-3 py-2">{{ $kupac->prezime }}</td>
-                        <td class="border px-3 py-2">{{ $kupac->telefon }}</td>
+                        <td class="border px-3 py-2">{{ $kupac->naziv }}</td>
+                        <td class="border px-3 py-2">{{ $kupac->adresa }}</td>
+                        <td class="border px-3 py-2">{{ $kupac->kontakt_telefon }}</td>
                         <td class="border px-3 py-2">{{ $kupac->email ?? '-' }}</td>
 
                         <td class="border px-3 py-2">

@@ -8,12 +8,14 @@ use App\Models\Narudzbina;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\Proizvod;
+use App\Models\Kupac;
 
 class NarudzbinaController extends Controller
 {
     public function index(Request $request)
     {
-        $narudzbinas = Narudzbina::all();
+        $narudzbinas = Narudzbina::with(['proizvod', 'kupac'])->get();
 
         return view('narudzbina.index', [
             'narudzbinas' => $narudzbinas,
@@ -22,7 +24,13 @@ class NarudzbinaController extends Controller
 
     public function create(Request $request)
     {
-        return view('narudzbina.create');
+        $proizvods = Proizvod::all();
+        $kupacs = Kupac::all();
+
+        return view('narudzbina.create', [
+            'proizvods' => $proizvods,
+            'kupacs' => $kupacs,
+        ]);
     }
 
     public function store(NarudzbinaStoreRequest $request)
@@ -31,7 +39,7 @@ class NarudzbinaController extends Controller
 
         $request->session()->flash('narudzbina.id', $narudzbina->id);
 
-        return redirect()->route('narudzbinas.index');
+        return redirect()->route('admin.narudzbine.index');
     }
 
     public function show(Request $request, Narudzbina $narudzbina)

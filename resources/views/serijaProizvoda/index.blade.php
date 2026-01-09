@@ -29,10 +29,8 @@
                 <tr>
                     <th class="border px-3 py-2 text-left">ID</th>
                     <th class="border px-3 py-2 text-left">Proizvod</th>
-                    <th class="border px-3 py-2 text-left">Broj serije</th>
                     <th class="border px-3 py-2 text-left">Datum proizvodnje</th>
                     <th class="border px-3 py-2 text-left">Količina</th>
-                    <th class="border px-3 py-2 text-left">Rok trajanja</th>
                     <th class="border px-3 py-2 text-left">Akcije</th>
                 </tr>
             </thead>
@@ -45,17 +43,13 @@
                             {{ $serija->proizvod->naziv ?? '-' }}
                         </td>
 
-                        <td class="border px-3 py-2">{{ $serija->broj_serije }}</td>
 
                         <td class="border px-3 py-2">
                             {{ $serija->datum_proizvodnje ? \Carbon\Carbon::parse($serija->datum_proizvodnje)->format('d.m.Y') : '-' }}
                         </td>
 
-                        <td class="border px-3 py-2">{{ $serija->kolicina }}</td>
+                        <td class="border px-3 py-2">{{ $serija->proizvedena_kolicina }}</td>
 
-                        <td class="border px-3 py-2">
-                            {{ $serija->rok_trajanja ? \Carbon\Carbon::parse($serija->rok_trajanja)->format('d.m.Y') : '-' }}
-                        </td>
 
                         <td class="border px-3 py-2">
                             <div class="flex gap-3">

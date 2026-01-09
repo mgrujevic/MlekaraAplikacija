@@ -28,9 +28,10 @@
             <thead class="bg-gray-100">
                 <tr>
                     <th class="border px-3 py-2 text-left">ID</th>
+                    <th class="border px-3 py-2 text-left">Proizvod</th>
                     <th class="border px-3 py-2 text-left">Kupac</th>
+                    <th class="border px-3 py-2 text-left">Kolicina</th>
                     <th class="border px-3 py-2 text-left">Datum</th>
-                    <th class="border px-3 py-2 text-left">Ukupna cena</th>
                     <th class="border px-3 py-2 text-left">Status</th>
                     <th class="border px-3 py-2 text-left">Akcije</th>
                 </tr>
@@ -41,18 +42,22 @@
                         <td class="border px-3 py-2">{{ $narudzbina->id }}</td>
 
                         <td class="border px-3 py-2">
-                            {{ $narudzbina->kupac->ime ?? '-' }}
-                            {{ $narudzbina->kupac->prezime ?? '' }}
+                            {{ $narudzbina->proizvod->naziv ?? '-' }}
                         </td>
 
+                        <td class="border px-3 py-2">
+                            {{ $narudzbina->kupac->naziv ?? '-' }}
+                        </td>
+
+                        
+                        <td class="border px-3 py-2">
+                            {{ $narudzbina->kolicina }}
+                        </td>
+                        
                         <td class="border px-3 py-2">
                             {{ $narudzbina->datum
                                 ? \Carbon\Carbon::parse($narudzbina->datum)->format('d.m.Y')
                                 : '-' }}
-                        </td>
-
-                        <td class="border px-3 py-2">
-                            {{ number_format($narudzbina->ukupna_cena, 2) }}
                         </td>
 
                         <td class="border px-3 py-2">

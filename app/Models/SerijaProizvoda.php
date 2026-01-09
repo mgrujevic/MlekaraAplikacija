@@ -22,6 +22,8 @@ class SerijaProizvoda extends Model
         'datum_proizvodnje',
     ];
 
+    protected $table = 'serija_proizvodas';
+
     /**
      * Get the attributes that should be cast.
      *

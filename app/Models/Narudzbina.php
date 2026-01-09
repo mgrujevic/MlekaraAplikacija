@@ -23,6 +23,8 @@ class Narudzbina extends Model
         'status',
     ];
 
+    protected $table = 'narudzbinas';
+
     /**
      * Get the attributes that should be cast.
      *
@@ -40,11 +42,11 @@ class Narudzbina extends Model
 
     public function proizvod(): BelongsTo
     {
-        return $this->belongsTo(Proizvod::class);
+        return $this->belongsTo(Proizvod::class, 'proizvod_id', 'id');
     }
 
     public function kupac(): BelongsTo
     {
-        return $this->belongsTo(Kupac::class);
+        return $this->belongsTo(Kupac::class, 'kupac_id', 'id');
     }
 }
