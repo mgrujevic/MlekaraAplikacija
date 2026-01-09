@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('narudzbinas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('proizvod_id')->constrained('proizvodis');
-            $table->foreignId('kupac_id')->constrained('kupcis');
+            $table->foreignId('proizvod_id')->constrained('proizvods');
+            $table->foreignId('kupac_id')->constrained('kupacs');
             $table->integer('kolicina');
             $table->date('datum');
             $table->enum('status', ["kreirana","u_obradi","isporucena","otkazana"]);

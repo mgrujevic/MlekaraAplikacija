@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('serija_proizvodas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('proizvod_id')->constrained('proizvodis');
+            $table->foreignId('proizvod_id')->constrained('proizvods');
             $table->integer('proizvedena_kolicina');
             $table->dateTime('datum_proizvodnje');
             $table->timestamps();

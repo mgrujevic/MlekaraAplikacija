@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('nabavkas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dobavljac_id')->constrained('dobavljacis');
-            $table->foreignId('sirovina_id')->constrained('sirovines');
+            $table->foreignId('dobavljac_id')->constrained('dobavljacs');
+            $table->foreignId('sirovina_id')->constrained('sirovinas');
             $table->dateTime('datum');
             $table->integer('kolicina');
             $table->decimal('cena', 10, 2);

@@ -29,6 +29,7 @@
             <thead class="bg-gray-100">
                 <tr>
                     <th class="border px-3 py-2 text-left">ID</th>
+                    <th class="border px-3 py-2 text-left">Sirovina</th>
                     <th class="border px-3 py-2 text-left">Dobavljač</th>
                     <th class="border px-3 py-2 text-left">Datum</th>
                     <th class="border px-3 py-2 text-left">Ukupna količina</th>
@@ -40,6 +41,10 @@
                 @forelse($nabavkas as $nabavka)
                     <tr class="hover:bg-gray-50">
                         <td class="border px-3 py-2">{{ $nabavka->id }}</td>
+
+                        <td class="border px-3 py-2">
+                            {{ $nabavka->sirovina->naziv ?? '-' }}
+                        </td>
 
                         <td class="border px-3 py-2">
                             {{ $nabavka->dobavljac->naziv ?? '-' }}

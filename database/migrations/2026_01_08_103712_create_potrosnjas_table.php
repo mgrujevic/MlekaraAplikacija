@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('potrosnjas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('serija_proizvoda_id')->constrained();
-            $table->foreignId('sirovina_id')->constrained('sirovines');
+            $table->foreignId('sirovina_id')->constrained('sirovinas');
             $table->integer('kolicina');
             $table->timestamps();
         });
