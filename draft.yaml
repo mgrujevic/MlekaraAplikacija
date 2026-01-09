@@ -1,0 +1,92 @@
+models:
+  Proizvod:
+    naziv: string:50
+    jedinica_mere: enum:kg,l,kom
+    ukupna_kolicina: integer
+    cena: decimal:10,2
+    relationships:
+      hasMany: SerijaProizvoda, Narudzbina
+
+  SerijaProizvoda:
+    proizvod_id: id foreign:proizvodi
+    proizvedena_kolicina: integer
+    datum_proizvodnje: datetime
+    relationships:
+      belongsTo: Proizvod
+      hasMany: Potrosnja
+
+  Sirovina:
+    naziv: string:50
+    jedinica_mere: enum:kg,l
+    kolicina: integer
+    relationships:
+      hasMany: Nabavka, Potrosnja
+
+  Dobavljac:
+    naziv: string:50
+    kontakt_osoba: string:50 nullable
+    adresa: string:50 nullable
+    telefon: string:50 nullable
+    email: string:50 unique nullable
+    relationships:
+      hasMany: Nabavka
+
+  Nabavka:
+    dobavljac_id: id foreign:dobavljaci
+    sirovina_id: id foreign:sirovine
+    datum: datetime
+    kolicina: integer
+    cena: decimal:10,2
+    relationships:
+      belongsTo: Dobavljac, Sirovina
+
+  Potrosnja:
+    serija_proizvoda_id: id foreign:serija_proizvoda
+    sirovina_id: id foreign:sirovine
+    kolicina: integer
+    relationships:
+      belongsTo: SerijaProizvoda, Sirovina
+
+  Kupac:
+    naziv: string:50
+    adresa: string:50 nullable
+    kontakt_telefon: string:50 nullable
+    email: string:50 unique nullable
+    relationships:
+      hasMany: Narudzbina
+
+  Narudzbina:
+    proizvod_id: id foreign:proizvodi
+    kupac_id: id foreign:kupci
+    kolicina: integer
+    datum: date
+    status: enum:kreirana,u_obradi,isporucena,otkazana
+    relationships:
+      belongsTo: Proizvod, Kupac
+
+  User:
+    ime: string:50
+    prezime: string:50
+    korisnicko_ime: string:20 unique
+    uloga: enum:administrator,operater,menadzer_prodaje
+    lozinka: string:255
+
+controllers:
+  Proizvod:
+    resource
+  SerijaProizvoda:
+    resource
+  Sirovina:
+    resource
+  Dobavljac:
+    resource
+  Nabavka:
+    resource
+  Potrosnja:
+    resource
+  Kupac:
+    resource
+  Narudzbina:
+    resource
+  User:
+    resource

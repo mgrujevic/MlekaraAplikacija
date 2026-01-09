@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\DobavljacStoreRequest;
+use App\Http\Requests\DobavljacUpdateRequest;
+use App\Models\Dobavljac;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+
+class DobavljacController extends Controller
+{
+    public function index(Request $request)
+    {
+        $dobavljacs = Dobavljac::all();
+
+        return view('dobavljac.index', [
+            'dobavljacs' => $dobavljacs,
+        ]);
+    }
+
+    public function create(Request $request)
+    {
+        return view('dobavljac.create');
+    }
+
+    public function store(DobavljacStoreRequest $request)
+    {
+        $dobavljac = Dobavljac::create($request->validated());
+
+        $request->session()->flash('dobavljac.id', $dobavljac->id);
+
+        return redirect()->route('admin.dobavljaci.index');
+    }
+
+    public function show(Request $request, Dobavljac $dobavljac)
+    {
+        return view('dobavljac.show', [
+            'dobavljac' => $dobavljac,
+        ]);
+    }
+
+    public function edit(Request $request, Dobavljac $dobavljac)
+    {
+        return view('dobavljac.edit', [
+            'dobavljac' => $dobavljac,
+        ]);
+    }
+
+    public function update(DobavljacUpdateRequest $request, Dobavljac $dobavljac)
+    {
+        $dobavljac->update($request->validated());
+
+        $request->session()->flash('dobavljac.id', $dobavljac->id);
+
+        return redirect()->route('admin.dobavljaci.index');
+    }
+
+    public function destroy(Request $request, Dobavljac $dobavljac)
+    {
+        $dobavljac->delete();
+
+        return redirect()->route('admin.dobavljaci.index');
+    }
+}

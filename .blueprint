@@ -1,0 +1,112 @@
+created:
+    - app/Http/Controllers/ProizvodController.php
+    - app/Http/Controllers/SerijaProizvodaController.php
+    - app/Http/Controllers/SirovinaController.php
+    - app/Http/Controllers/DobavljacController.php
+    - app/Http/Controllers/NabavkaController.php
+    - app/Http/Controllers/PotrosnjaController.php
+    - app/Http/Controllers/KupacController.php
+    - app/Http/Controllers/NarudzbinaController.php
+    - app/Http/Controllers/UserController.php
+    - database/factories/ProizvodFactory.php
+    - database/factories/SerijaProizvodaFactory.php
+    - database/factories/SirovinaFactory.php
+    - database/factories/DobavljacFactory.php
+    - database/factories/NabavkaFactory.php
+    - database/factories/PotrosnjaFactory.php
+    - database/factories/KupacFactory.php
+    - database/factories/NarudzbinaFactory.php
+    - database/factories/UserFactory.php
+    - database/migrations/2026_01_08_103707_create_proizvods_table.php
+    - database/migrations/2026_01_08_103708_create_serija_proizvodas_table.php
+    - database/migrations/2026_01_08_103709_create_sirovinas_table.php
+    - database/migrations/2026_01_08_103710_create_dobavljacs_table.php
+    - database/migrations/2026_01_08_103711_create_nabavkas_table.php
+    - database/migrations/2026_01_08_103712_create_potrosnjas_table.php
+    - database/migrations/2026_01_08_103713_create_kupacs_table.php
+    - database/migrations/2026_01_08_103714_create_narudzbinas_table.php
+    - database/migrations/2026_01_08_103715_create_users_table.php
+    - app/Models/Proizvod.php
+    - app/Models/SerijaProizvoda.php
+    - app/Models/Sirovina.php
+    - app/Models/Dobavljac.php
+    - app/Models/Nabavka.php
+    - app/Models/Potrosnja.php
+    - app/Models/Kupac.php
+    - app/Models/Narudzbina.php
+    - app/Models/User.php
+    - tests/Feature/Http/Controllers/ProizvodControllerTest.php
+    - tests/Feature/Http/Controllers/SerijaProizvodaControllerTest.php
+    - tests/Feature/Http/Controllers/SirovinaControllerTest.php
+    - tests/Feature/Http/Controllers/DobavljacControllerTest.php
+    - tests/Feature/Http/Controllers/NabavkaControllerTest.php
+    - tests/Feature/Http/Controllers/PotrosnjaControllerTest.php
+    - tests/Feature/Http/Controllers/KupacControllerTest.php
+    - tests/Feature/Http/Controllers/NarudzbinaControllerTest.php
+    - tests/Feature/Http/Controllers/UserControllerTest.php
+    - app/Http/Requests/ProizvodStoreRequest.php
+    - app/Http/Requests/ProizvodUpdateRequest.php
+    - app/Http/Requests/SerijaProizvodaStoreRequest.php
+    - app/Http/Requests/SerijaProizvodaUpdateRequest.php
+    - app/Http/Requests/SirovinaStoreRequest.php
+    - app/Http/Requests/SirovinaUpdateRequest.php
+    - app/Http/Requests/DobavljacStoreRequest.php
+    - app/Http/Requests/DobavljacUpdateRequest.php
+    - app/Http/Requests/NabavkaStoreRequest.php
+    - app/Http/Requests/NabavkaUpdateRequest.php
+    - app/Http/Requests/PotrosnjaStoreRequest.php
+    - app/Http/Requests/PotrosnjaUpdateRequest.php
+    - app/Http/Requests/KupacStoreRequest.php
+    - app/Http/Requests/KupacUpdateRequest.php
+    - app/Http/Requests/NarudzbinaStoreRequest.php
+    - app/Http/Requests/NarudzbinaUpdateRequest.php
+    - app/Http/Requests/UserStoreRequest.php
+    - app/Http/Requests/UserUpdateRequest.php
+    - resources/views/proizvod/index.blade.php
+    - resources/views/proizvod/create.blade.php
+    - resources/views/proizvod/show.blade.php
+    - resources/views/proizvod/edit.blade.php
+    - resources/views/serijaProizvoda/index.blade.php
+    - resources/views/serijaProizvoda/create.blade.php
+    - resources/views/serijaProizvoda/show.blade.php
+    - resources/views/serijaProizvoda/edit.blade.php
+    - resources/views/sirovina/index.blade.php
+    - resources/views/sirovina/create.blade.php
+    - resources/views/sirovina/show.blade.php
+    - resources/views/sirovina/edit.blade.php
+    - resources/views/dobavljac/index.blade.php
+    - resources/views/dobavljac/create.blade.php
+    - resources/views/dobavljac/show.blade.php
+    - resources/views/dobavljac/edit.blade.php
+    - resources/views/nabavka/index.blade.php
+    - resources/views/nabavka/create.blade.php
+    - resources/views/nabavka/show.blade.php
+    - resources/views/nabavka/edit.blade.php
+    - resources/views/potrosnja/index.blade.php
+    - resources/views/potrosnja/create.blade.php
+    - resources/views/potrosnja/show.blade.php
+    - resources/views/potrosnja/edit.blade.php
+    - resources/views/kupac/index.blade.php
+    - resources/views/kupac/create.blade.php
+    - resources/views/kupac/show.blade.php
+    - resources/views/kupac/edit.blade.php
+    - resources/views/narudzbina/index.blade.php
+    - resources/views/narudzbina/create.blade.php
+    - resources/views/narudzbina/show.blade.php
+    - resources/views/narudzbina/edit.blade.php
+    - resources/views/user/index.blade.php
+    - resources/views/user/create.blade.php
+    - resources/views/user/show.blade.php
+    - resources/views/user/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    Proizvod: { naziv: 'string:50', jedinica_mere: 'enum:kg,l,kom', ukupna_kolicina: integer, cena: 'decimal:10,2', relationships: { hasMany: 'SerijaProizvoda, Narudzbina' } }
+    SerijaProizvoda: { proizvod_id: 'id foreign:proizvodi', proizvedena_kolicina: integer, datum_proizvodnje: datetime, relationships: { belongsTo: Proizvod, hasMany: Potrosnja } }
+    Sirovina: { naziv: 'string:50', jedinica_mere: 'enum:kg,l', kolicina: integer, relationships: { hasMany: 'Nabavka, Potrosnja' } }
+    Dobavljac: { naziv: 'string:50', kontakt_osoba: 'string:50 nullable', adresa: 'string:50 nullable', telefon: 'string:50 nullable', email: 'string:50 unique nullable', relationships: { hasMany: Nabavka } }
+    Nabavka: { dobavljac_id: 'id foreign:dobavljaci', sirovina_id: 'id foreign:sirovine', datum: datetime, kolicina: integer, cena: 'decimal:10,2', relationships: { belongsTo: 'Dobavljac, Sirovina' } }
+    Potrosnja: { serija_proizvoda_id: 'id foreign:serija_proizvoda', sirovina_id: 'id foreign:sirovine', kolicina: integer, relationships: { belongsTo: 'SerijaProizvoda, Sirovina' } }
+    Kupac: { naziv: 'string:50', adresa: 'string:50 nullable', kontakt_telefon: 'string:50 nullable', email: 'string:50 unique nullable', relationships: { hasMany: Narudzbina } }
+    Narudzbina: { proizvod_id: 'id foreign:proizvodi', kupac_id: 'id foreign:kupci', kolicina: integer, datum: date, status: 'enum:kreirana,u_obradi,isporucena,otkazana', relationships: { belongsTo: 'Proizvod, Kupac' } }
+    User: { ime: 'string:50', prezime: 'string:50', korisnicko_ime: 'string:20 unique', uloga: 'enum:administrator,operater,menadzer_prodaje', lozinka: 'string:255' }
