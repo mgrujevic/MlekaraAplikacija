@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 
     return match ($uloga) {
         'administrator' => redirect()->route('admin.meni'),
-        'operater' => redirect()->route('operater.nabavke.index'),
+        'operater' => redirect()->route('operater.operater-meni'),
         'menadzer_prodaje' => redirect()->route('prodaja.narudzbine.index'),
         default => abort(403),
     };
@@ -62,6 +62,11 @@ Route::middleware('auth')->group(function () {
 
     // OPERATER
     Route::prefix('operater')->name('operater.')->middleware('role:operater')->group(function () {
+
+        Route::get('/operater-meni', function () {
+            return view('operater.operater-meni');
+        })->name('operater-meni');
+
         Route::resource('sirovine', SirovinaController::class)->except(['destroy']);
         Route::resource('dobavljaci', DobavljacController::class)->except(['destroy']);
         Route::resource('nabavke', NabavkaController::class);

@@ -27,7 +27,16 @@ class NabavkaController extends Controller
         $dobavljaci = Dobavljac::all();
         $sirovine = Sirovina::all();
 
-        return view('nabavka.create', compact('dobavljaci', 'sirovine'));
+        return view('nabavka.create', [
+        'dobavljaci' => $dobavljaci,
+        'sirovine'  => $sirovine,
+        'prefix'     => $this->routePrefix(),
+    ]);
+    }
+
+    private function routePrefix(): string
+    {
+        return request()->routeIs('admin.*') ? 'admin.' : 'operater.';
     }
 
     public function store(NabavkaStoreRequest $request)
@@ -35,8 +44,14 @@ class NabavkaController extends Controller
         $nabavka = Nabavka::create($request->validated());
 
         $request->session()->flash('nabavka.id', $nabavka->id);
+        $message = 'Nabavka je uspešno uneta.';
 
-        return redirect()->route('admin.nabavke.index');
+        if (auth()->check() && auth()->user()->uloga === 'operater') {
+            return back()->with('success', 'Nabavka je uspešno uneta.');
+        }
+
+        return redirect()->route('admin.nabavke.index')
+            ->with('success', 'Nabavka je uspešno uneta.');
     }
 
     public function show(Request $request, Nabavka $nabavka)

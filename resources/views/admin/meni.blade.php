@@ -15,7 +15,7 @@
         </a>
 
         <a href="{{ route('admin.prijem-podmeni') }}"
-           class="w-full sm:w-2/3 text-center px-6 py-4 border rounded-lg bg-white hover:bg-gray-50">
+           class="w-full sm:w-2/3 text-center px-6 py-4 border rounded-1g bg-white hover:bg-gray-50">
             Prijem
         </a>
 

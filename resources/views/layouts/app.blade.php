@@ -20,6 +20,14 @@
     {{-- Gornja navigacija --}}
     @include('layouts.navigation')
 
+    @if (session('success'))
+    <div class="max-w-7xl mx-auto mt-4 px-4">
+        <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded">
+            {{ session('success') }}
+        </div>
+    </div>
+    @endif
+
     {{-- Glavni sadržaj stranice --}}
     <main class="max-w-7xl mx-auto px-6 py-6">
         @yield('content')

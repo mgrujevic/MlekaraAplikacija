@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('admin.nabavke.store') }}">
+    <form method="POST" action="{{ route($prefix . 'nabavke.store') }}">
         @csrf
 
         {{-- Dobavljač --}}
@@ -99,10 +99,17 @@
                 Sačuvaj
             </button>
 
-            <a href="{{ route('admin.nabavke.index') }}"
-               class="px-4 py-2 border rounded hover:bg-gray-100">
-                Nazad
-            </a>
+            @if(auth()->user()->uloga === 'operater')
+                <a href="{{ route('operater.operater-meni') }}"
+                class="px-4 py-2 border rounded hover:bg-gray-100">
+                    Nazad
+                </a>
+            @else
+                <a href="{{ route('admin.nabavke.index') }}"
+                class="px-4 py-2 border rounded hover:bg-gray-100">
+                    Nazad
+                </a>
+            @endif
         </div>
 
     </form>

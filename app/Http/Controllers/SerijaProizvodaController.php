@@ -21,11 +21,19 @@ class SerijaProizvodaController extends Controller
         ]);
     }
 
+    private function routePrefix(): string
+    {
+        return request()->routeIs('admin.*') ? 'admin.' : 'operater.';
+    }
+
     public function create(Request $request)
     {
         $proizvodi = Proizvod::all();
 
-        return view('serijaProizvoda.create', compact('proizvodi'));
+        return view('serijaProizvoda.create', [
+            'proizvodi' => $proizvodi,
+            'prefix' => $this->routePrefix()
+        ]);
     }
 
     public function store(SerijaProizvodaStoreRequest $request)
@@ -34,7 +42,12 @@ class SerijaProizvodaController extends Controller
 
         $request->session()->flash('serijaProizvoda.id', $serijaProizvoda->id);
 
-        return redirect()->route('admin.serije-proizvoda.index');
+        if (auth()->check() && auth()->user()->uloga === 'operater') {
+            return back()->with('success', 'Serija je uspešno uneta.');
+        }
+
+        return redirect()->route('admin.nabavke.index')
+            ->with('success', 'Serija je uspešno uneta.');
     }
 
     public function show(Request $request, SerijaProizvoda $serijaProizvoda)
