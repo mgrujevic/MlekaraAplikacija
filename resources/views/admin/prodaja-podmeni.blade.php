@@ -5,7 +5,7 @@
 @section('content')
 <div class="max-w-4xl mx-auto py-10">
 
-    <h1 class="text-4xl font-semibold text-center mb-10">Prijem</h1>
+    <h1 class="text-4xl font-semibold text-center mb-10">Prodaja</h1>
 
     <div class="flex flex-col items-center gap-6">
 

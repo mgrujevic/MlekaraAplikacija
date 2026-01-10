@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('admin.kupci.store') }}">
+    <form method="POST" action="{{ route($prefix.'kupci.store') }}">
         @csrf
 
         {{-- Ime --}}
@@ -74,10 +74,19 @@
                 Sačuvaj
             </button>
 
-            <a href="{{ route('admin.kupci.index') }}"
-               class="px-4 py-2 border rounded hover:bg-gray-100">
-                Nazad
-            </a>
+            @if(auth()->user()->uloga === 'administrator')
+            <div class="mt-6">
+                <a href="{{ route('admin.kupci.index') }}"
+                class="px-4 py-2 border rounded hover:bg-gray-100">
+                    Nazad
+                </a>
+            </div>
+            @else
+                <a href="{{ route('menadzer.kupci.index') }}"
+                class="px-4 py-2 border rounded hover:bg-gray-100">
+                    Nazad
+                </a>
+            @endif
         </div>
 
     </form>

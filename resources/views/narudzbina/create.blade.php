@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('admin.narudzbine.store') }}">
+    <form method="POST" action="{{ route($prefix.'narudzbine.store') }}">
         @csrf
 
         <div class="mb-4">
@@ -77,7 +77,7 @@
         <div class="mb-4">
             <label class="block mb-1">Status</label>
             <select name="status" class="w-full border px-3 py-2 rounded" required>
-                <option value="nova" @selected(old('status', 'nova') === 'nova')>Nova</option>
+                <option value="kreirana" @selected(old('status') === 'kreirana')>Kreirana</option>
                 <option value="u_obradi" @selected(old('status') === 'u_obradi')>U obradi</option>
                 <option value="zavrsena" @selected(old('status') === 'zavrsena')>Završena</option>
                 <option value="otkazana" @selected(old('status') === 'otkazana')>Otkazana</option>
@@ -90,7 +90,7 @@
                 Sačuvaj
             </button>
 
-            <a href="{{ route('admin.narudzbine.index') }}"
+            <a href="{{ route($prefix.'narudzbine.index') }}"
                class="px-4 py-2 border rounded hover:bg-gray-100">
                 Nazad
             </a>

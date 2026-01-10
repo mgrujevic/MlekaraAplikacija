@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
     return match ($uloga) {
         'administrator' => redirect()->route('admin.meni'),
         'operater' => redirect()->route('operater.operater-meni'),
-        'menadzer_prodaje' => redirect()->route('prodaja.narudzbine.index'),
+        'menadzer_prodaje' => redirect()->route('menadzer.menadzer-meni'),
         default => abort(403),
     };
 })->middleware('auth')->name('dashboard');
@@ -67,18 +67,22 @@ Route::middleware('auth')->group(function () {
             return view('operater.operater-meni');
         })->name('operater-meni');
 
-        Route::resource('sirovine', SirovinaController::class)->except(['destroy']);
-        Route::resource('dobavljaci', DobavljacController::class)->except(['destroy']);
+        // Route::resource('sirovine', SirovinaController::class)->except(['destroy']);
+        // Route::resource('dobavljaci', DobavljacController::class)->except(['destroy']);
         Route::resource('nabavke', NabavkaController::class);
         Route::resource('serije-proizvoda', SerijaProizvodaController::class);
-        Route::resource('potrosnje', PotrosnjaController::class);
+        // Route::resource('potrosnje', PotrosnjaController::class);
     });
 
     // MENADŽER PRODAJE
-    Route::prefix('prodaja')->name('prodaja.')->middleware('role:menadzer_prodaje')->group(function () {
+    Route::prefix('menadzer')->name('menadzer.')->middleware('role:menadzer_prodaje')->group(function () {
+
+        Route::get('/menadzer-meni', function () {
+            return view('menadzer.meni');
+        })->name('menadzer-meni');
+
         Route::resource('kupci', KupacController::class);
         Route::resource('narudzbine', NarudzbinaController::class);
-        Route::resource('proizvodi', ProizvodController::class)->only(['index', 'show']);
     });
 });
 

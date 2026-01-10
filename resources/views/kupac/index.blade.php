@@ -9,18 +9,12 @@
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-semibold">Kupci</h1>
 
-        <a href="{{ route('admin.kupci.create') }}"
+        <a href="{{ route($prefix . 'kupci.create') }}"
            class="px-4 py-2 border rounded hover:bg-gray-100">
             + Dodaj kupca
         </a>
     </div>
 
-    {{-- Flash poruka --}}
-    @if(session('success'))
-        <div class="mb-4 p-3 border rounded bg-green-50 text-green-700">
-            {{ session('success') }}
-        </div>
-    @endif
 
     {{-- Tabela --}}
     <div class="bg-white border rounded">
@@ -75,6 +69,7 @@
         </table>
     </div>
 
+    @if(auth()->user()->uloga === 'administrator')
     {{-- Nazad --}}
     <div class="mt-6">
         <a href="{{ route('admin.prodaja-podmeni') }}"
@@ -82,6 +77,15 @@
             Nazad na meni
         </a>
     </div>
+    @else
+        <a href="{{ route('menadzer.menadzer-meni') }}"
+        class="px-4 py-2 border rounded hover:bg-gray-100">
+            Nazad na meni
+        </a>
+    @endif
+
+
+    
 
 </div>
 @endsection

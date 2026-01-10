@@ -31,7 +31,7 @@ class UserController extends Controller
 
         $request->session()->flash('user.id', $user->id);
 
-        return redirect()->route('admin.korisnici.index');
+        return redirect()->route('admin.korisnici.index')->with('success', 'Korisnik je uspešno unet.');
     }
 
     public function show(Request $request, User $user)

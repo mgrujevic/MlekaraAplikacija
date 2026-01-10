@@ -13,12 +13,19 @@ use App\Models\Kupac;
 
 class NarudzbinaController extends Controller
 {
+
+    private function routePrefix(): string
+    {
+        return request()->routeIs('admin.*') ? 'admin.' : 'menadzer.';
+    }
+
     public function index(Request $request)
     {
         $narudzbinas = Narudzbina::with(['proizvod', 'kupac'])->get();
 
         return view('narudzbina.index', [
             'narudzbinas' => $narudzbinas,
+            'prefix' => $this->routePrefix()
         ]);
     }
 
@@ -30,6 +37,7 @@ class NarudzbinaController extends Controller
         return view('narudzbina.create', [
             'proizvods' => $proizvods,
             'kupacs' => $kupacs,
+            'prefix' => $this->routePrefix()
         ]);
     }
 
@@ -39,7 +47,17 @@ class NarudzbinaController extends Controller
 
         $request->session()->flash('narudzbina.id', $narudzbina->id);
 
-        return redirect()->route('admin.narudzbine.index');
+        if (auth()->check() && auth()->user()->uloga === 'administrator') {
+            return redirect()
+                ->route('admin.narudzbine.index')
+                ->with('success', 'Narudzbina je uspešno uneta.');
+        }
+
+        if (auth()->check() && auth()->user()->uloga === 'menadzer_prodaje') {
+            return redirect()
+                ->route('menadzer.narudzbine.index')
+                ->with('success', 'Narudzbina je uspešno uneta.');
+        }
     }
 
     public function show(Request $request, Narudzbina $narudzbina)
