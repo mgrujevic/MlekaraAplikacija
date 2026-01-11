@@ -64,6 +64,7 @@ class KupacController extends Controller
     {
         return view('kupac.edit', [
             'kupac' => $kupac,
+            'prefix' => $this->routePrefix()
         ]);
     }
 
@@ -73,13 +74,33 @@ class KupacController extends Controller
 
         $request->session()->flash('kupac.id', $kupac->id);
 
-        return redirect()->route('kupacs.index');
+        if (auth()->check() && auth()->user()->uloga === 'administrator') {
+            return redirect()
+                ->route('admin.kupci.index')
+                ->with('success', 'Kupac je uspešno izmenjen.');
+        }
+
+        if (auth()->check() && auth()->user()->uloga === 'menadzer_prodaje') {
+            return redirect()
+                ->route('menadzer.kupci.index')
+                ->with('success', 'Kupac je uspešno izmenjen.');
+        }
     }
 
     public function destroy(Request $request, Kupac $kupac)
     {
         $kupac->delete();
 
-        return redirect()->route('kupacs.index');
+        if (auth()->check() && auth()->user()->uloga === 'administrator') {
+            return redirect()
+                ->route('admin.kupci.index')
+                ->with('success', 'Kupac je uspešno obrisan.');
+        }
+
+        if (auth()->check() && auth()->user()->uloga === 'menadzer_prodaje') {
+            return redirect()
+                ->route('menadzer.kupci.index')
+                ->with('success', 'Kupac je uspešno obrisan.');
+        }
     }
 }

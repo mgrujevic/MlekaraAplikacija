@@ -44,6 +44,17 @@
             >
         </div>
 
+        {{-- Adresa --}}
+        <div class="mb-4">
+            <label class="block mb-1">Adresa</label>
+            <input
+                type="text"
+                name="adresa"
+                value="{{ old('adresa') }}"
+                class="w-full border px-3 py-2 rounded"
+            >
+        </div>
+
         {{-- Telefon --}}
         <div class="mb-4">
             <label class="block mb-1">Telefon</label>
@@ -69,12 +80,18 @@
         {{-- Dugmad --}}
         <div class="flex gap-4">
             <button type="submit"
-                    class="px-4 py-2 border rounded hover:bg-gray-100">
+                    class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
                 Sačuvaj
             </button>
 
             <a href="{{ route('admin.dobavljaci.index') }}"
-               class="px-4 py-2 border rounded hover:bg-gray-100">
+               class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
                 Nazad
             </a>
         </div>

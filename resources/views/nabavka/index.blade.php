@@ -11,7 +11,10 @@
         <h1 class="text-3xl font-semibold">Nabavke</h1>
 
         <a href="{{ route('admin.nabavke.create') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             + Nova nabavka
         </a>
     </div>
@@ -32,7 +35,8 @@
                     <th class="border px-3 py-2 text-left">Sirovina</th>
                     <th class="border px-3 py-2 text-left">Dobavljač</th>
                     <th class="border px-3 py-2 text-left">Datum</th>
-                    <th class="border px-3 py-2 text-left">Ukupna količina</th>
+                    <th class="border px-3 py-2 text-left">Količina</th>
+                    <th class="border px-3 py-2 text-left">Cena</th>
                     <th class="border px-3 py-2 text-left">Napomena</th>
                     <th class="border px-3 py-2 text-left">Akcije</th>
                 </tr>
@@ -56,6 +60,10 @@
 
                         <td class="border px-3 py-2">
                             {{ $nabavka->kolicina }}
+                        </td>
+
+                        <td class="border px-3 py-2">
+                            {{ $nabavka->cena }}
                         </td>
 
                         <td class="border px-3 py-2">
@@ -96,7 +104,10 @@
     {{-- Nazad --}}
     <div class="mt-6">
         <a href="{{ route('admin.prijem-podmeni') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             Nazad na meni
         </a>
     </div>

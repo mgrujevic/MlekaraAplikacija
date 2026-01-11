@@ -21,7 +21,7 @@ class SirovinaStoreRequest extends FormRequest
     {
         return [
             'naziv' => ['required', 'string', 'max:50'],
-            'jedinica_mere' => ['required', 'in:kg,l'],
+            'jedinica_mere' => ['required', 'in:kg,l,kom'],
             'kolicina' => ['required', 'integer'],
         ];
     }

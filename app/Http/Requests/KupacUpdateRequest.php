@@ -23,7 +23,7 @@ class KupacUpdateRequest extends FormRequest
             'naziv' => ['required', 'string', 'max:50'],
             'adresa' => ['nullable', 'string', 'max:50'],
             'kontakt_telefon' => ['nullable', 'string', 'max:50'],
-            'email' => ['nullable', 'email', 'max:50', 'unique:kupacs,email'],
+            'email' => ['nullable', 'email', 'max:50'],
         ];
     }
 }

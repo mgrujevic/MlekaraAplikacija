@@ -11,12 +11,18 @@
 
 
         <a href="{{ route('menadzer.kupci.index') }}"
-           class="w-full sm:w-2/3 text-center px-6 py-4 border rounded-lg bg-white hover:bg-gray-50">
+           class="w-full sm:w-2/3 text-center px-6 py-4 border-4 rounded-lg
+                bg-slate-50 border-slate-300 text-slate-700
+                hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+                transition-colors duration-200">
             Evidencija kupaca
         </a>
 
         <a href="{{ route('menadzer.narudzbine.index') }}"
-           class="w-full sm:w-2/3 text-center px-6 py-4 border rounded-lg bg-white hover:bg-gray-50">
+           class="w-full sm:w-2/3 text-center px-6 py-4 border-4 rounded-lg
+                bg-slate-50 border-slate-300 text-slate-700
+                hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+                transition-colors duration-200">
             Upravljanje narudžbinama
         </a>
 

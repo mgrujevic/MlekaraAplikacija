@@ -10,7 +10,10 @@
         <h1 class="text-3xl font-semibold">Narudžbine</h1>
 
         <a href="{{ route($prefix . 'narudzbine.create') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             + Nova narudžbina
         </a>
     </div>
@@ -59,13 +62,13 @@
 
                         <td class="border px-3 py-2">
                             <div class="flex gap-3">
-                                <a href="{{ route('admin.narudzbine.edit', $narudzbina) }}"
+                                <a href="{{ route($prefix.'narudzbine.edit', $narudzbina) }}"
                                    class="text-blue-600 hover:underline">
                                     Izmeni
                                 </a>
 
                                 <form method="POST"
-                                      action="{{ route('admin.narudzbine.destroy', $narudzbina) }}"
+                                      action="{{ route($prefix.'narudzbine.destroy', $narudzbina) }}"
                                       onsubmit="return confirm('Da li ste sigurni?')">
                                     @csrf
                                     @method('DELETE')
@@ -92,13 +95,19 @@
     {{-- Nazad --}}
     <div class="mt-6">
         <a href="{{ route('admin.prodaja-podmeni') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             Nazad na meni
         </a>
     </div>
     @else
         <a href="{{ route('menadzer.menadzer-meni') }}"
-        class="px-4 py-2 border rounded hover:bg-gray-100">
+        class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             Nazad na meni
         </a>
     @endif

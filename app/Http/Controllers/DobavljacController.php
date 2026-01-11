@@ -8,6 +8,7 @@ use App\Models\Dobavljac;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Validation\Rule;
 
 class DobavljacController extends Controller
 {
@@ -50,7 +51,9 @@ class DobavljacController extends Controller
 
     public function update(DobavljacUpdateRequest $request, Dobavljac $dobavljac)
     {
+
         $dobavljac->update($request->validated());
+        
 
         $request->session()->flash('dobavljac.id', $dobavljac->id);
 

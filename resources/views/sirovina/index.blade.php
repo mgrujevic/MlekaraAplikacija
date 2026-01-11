@@ -10,7 +10,10 @@
         <h1 class="text-3xl font-semibold">Sirovine</h1>
 
         <a href="{{ route('admin.sirovine.create') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             + Dodaj sirovinu
         </a>
     </div>
@@ -75,7 +78,10 @@
     {{-- Nazad --}}
     <div class="mt-6">
         <a href="{{ route('admin.prijem-podmeni') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             Nazad na meni
         </a>
     </div>

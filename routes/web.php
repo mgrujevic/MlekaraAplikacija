@@ -51,13 +51,13 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('korisnici', UserController::class)->parameters(['korisnici' => 'user']);
         Route::resource('proizvodi', ProizvodController::class);
-        Route::resource('sirovine', SirovinaController::class);
-        Route::resource('dobavljaci', DobavljacController::class);
-        Route::resource('nabavke', NabavkaController::class);
-        Route::resource('serije-proizvoda', SerijaProizvodaController::class);
+        Route::resource('sirovine', SirovinaController::class)->parameters(['sirovine' => 'sirovina']);;
+        Route::resource('dobavljaci', DobavljacController::class)->parameters(['dobavljaci' => 'dobavljac']);
+        Route::resource('nabavke', NabavkaController::class)->parameters(['nabavke' => 'nabavka']);
+        Route::resource('serije-proizvoda', SerijaProizvodaController::class)->parameters(['serije-proizvoda' => 'serijaProizvoda']);
         Route::resource('potrosnje', PotrosnjaController::class);
-        Route::resource('kupci', KupacController::class);
-        Route::resource('narudzbine', NarudzbinaController::class);
+        Route::resource('kupci', KupacController::class)->parameters(['kupci' => 'kupac']);
+        Route::resource('narudzbine', NarudzbinaController::class)->parameters(['narudzbine' => 'narudzbina']);
     });
 
     // OPERATER
@@ -67,11 +67,8 @@ Route::middleware('auth')->group(function () {
             return view('operater.operater-meni');
         })->name('operater-meni');
 
-        // Route::resource('sirovine', SirovinaController::class)->except(['destroy']);
-        // Route::resource('dobavljaci', DobavljacController::class)->except(['destroy']);
         Route::resource('nabavke', NabavkaController::class);
         Route::resource('serije-proizvoda', SerijaProizvodaController::class);
-        // Route::resource('potrosnje', PotrosnjaController::class);
     });
 
     // MENADŽER PRODAJE
@@ -81,8 +78,8 @@ Route::middleware('auth')->group(function () {
             return view('menadzer.meni');
         })->name('menadzer-meni');
 
-        Route::resource('kupci', KupacController::class);
-        Route::resource('narudzbine', NarudzbinaController::class);
+        Route::resource('kupci', KupacController::class)->parameters(['kupci' => 'kupac']);
+        Route::resource('narudzbine', NarudzbinaController::class)->parameters(['narudzbine' => 'narudzbina']);
     });
 });
 

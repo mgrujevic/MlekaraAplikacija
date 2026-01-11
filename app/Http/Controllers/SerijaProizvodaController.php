@@ -59,8 +59,11 @@ class SerijaProizvodaController extends Controller
 
     public function edit(Request $request, SerijaProizvoda $serijaProizvoda)
     {
+        $proizvodi = Proizvod::All();
+
         return view('serijaProizvoda.edit', [
             'serijaProizvoda' => $serijaProizvoda,
+            'proizvodi' => $proizvodi
         ]);
     }
 
@@ -70,13 +73,13 @@ class SerijaProizvodaController extends Controller
 
         $request->session()->flash('serijaProizvoda.id', $serijaProizvoda->id);
 
-        return redirect()->route('serijaProizvodas.index');
+        return redirect()->route('admin.serije-proizvoda.index');
     }
 
     public function destroy(Request $request, SerijaProizvoda $serijaProizvoda)
     {
         $serijaProizvoda->delete();
 
-        return redirect()->route('serijaProizvodas.index');
+        return redirect()->route('admin.serije-proizvoda.index');
     }
 }

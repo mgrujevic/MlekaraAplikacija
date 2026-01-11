@@ -10,7 +10,10 @@
         <h1 class="text-3xl font-semibold">Dobavljači</h1>
 
         <a href="{{ route('admin.dobavljaci.create') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             + Dodaj dobavljača
         </a>
     </div>
@@ -29,7 +32,8 @@
                 <tr>
                     <th class="border px-3 py-2 text-left">ID</th>
                     <th class="border px-3 py-2 text-left">Naziv</th>
-                    <th class="border px-3 py-2 text-left">Kontakt osoba</th>                    
+                    <th class="border px-3 py-2 text-left">Kontakt osoba</th>
+                    <th class="border px-3 py-2 text-left">Adresa</th>                    
                     <th class="border px-3 py-2 text-left">Telefon</th>
                     <th class="border px-3 py-2 text-left">Email</th>
                     <th class="border px-3 py-2 text-left">Akcije</th>
@@ -41,6 +45,7 @@
                         <td class="border px-3 py-2">{{ $dobavljac->id }}</td>
                         <td class="border px-3 py-2">{{ $dobavljac->naziv }}</td>
                         <td class="border px-3 py-2">{{ $dobavljac->kontakt_osoba }}</td>
+                        <td class="border px-3 py-2">{{ $dobavljac->adresa }}</td>
                         <td class="border px-3 py-2">{{ $dobavljac->telefon }}</td>
                         <td class="border px-3 py-2">{{ $dobavljac->email }}</td>
                         <td class="border px-3 py-2">
@@ -79,7 +84,10 @@
     {{-- Nazad --}}
     <div class="mt-6">
         <a href="{{ route('admin.prijem-podmeni') }}"
-           class="px-4 py-2 border rounded hover:bg-gray-100">
+           class="px-4 py-2 border-4 border-slate-300 rounded-lg
+        bg-slate-50 text-slate-700
+        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+        shadow-sm transition-all duration-200">
             Nazad na meni
         </a>
     </div>

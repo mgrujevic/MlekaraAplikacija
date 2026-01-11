@@ -24,7 +24,7 @@ class DobavljacUpdateRequest extends FormRequest
             'kontakt_osoba' => ['nullable', 'string', 'max:50'],
             'adresa' => ['nullable', 'string', 'max:50'],
             'telefon' => ['nullable', 'string', 'max:50'],
-            'email' => ['nullable', 'email', 'max:50', 'unique:dobavljacs,email'],
+            'email' => ['nullable', 'email', 'max:50'],
         ];
     }
 }

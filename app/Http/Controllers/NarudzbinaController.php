@@ -69,8 +69,14 @@ class NarudzbinaController extends Controller
 
     public function edit(Request $request, Narudzbina $narudzbina)
     {
+        $proizvodi = Proizvod::all();
+        $kupci = Kupac::all();
+
         return view('narudzbina.edit', [
             'narudzbina' => $narudzbina,
+            'prefix' => $this->routePrefix(),
+            'proizvodi' => $proizvodi,
+            'kupci' => $kupci
         ]);
     }
 
@@ -80,13 +86,33 @@ class NarudzbinaController extends Controller
 
         $request->session()->flash('narudzbina.id', $narudzbina->id);
 
-        return redirect()->route('narudzbinas.index');
+        if (auth()->check() && auth()->user()->uloga === 'administrator') {
+            return redirect()
+                ->route('admin.narudzbine.index')
+                ->with('success', 'Narudzbina je uspešno izmenjena.');
+        }
+
+        if (auth()->check() && auth()->user()->uloga === 'menadzer_prodaje') {
+            return redirect()
+                ->route('menadzer.narudzbine.index')
+                ->with('success', 'Narudzbina je uspešno izmenjena.');
+        }
     }
 
     public function destroy(Request $request, Narudzbina $narudzbina)
     {
         $narudzbina->delete();
 
-        return redirect()->route('narudzbinas.index');
+        if (auth()->check() && auth()->user()->uloga === 'administrator') {
+            return redirect()
+                ->route('admin.narudzbine.index')
+                ->with('success', 'Narudzbina je uspešno obrisana.');
+        }
+
+        if (auth()->check() && auth()->user()->uloga === 'menadzer_prodaje') {
+            return redirect()
+                ->route('menadzer.narudzbine.index')
+                ->with('success', 'Narudzbina je uspešno obrisana.');
+        }
     }
 }

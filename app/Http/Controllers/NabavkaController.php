@@ -65,6 +65,8 @@ class NabavkaController extends Controller
     {
         return view('nabavka.edit', [
             'nabavka' => $nabavka,
+            'sirovine' => Sirovina::orderBy('naziv')->get(),
+            'dobavljaci' => Dobavljac::orderBy('naziv')->get()
         ]);
     }
 
@@ -74,13 +76,13 @@ class NabavkaController extends Controller
 
         $request->session()->flash('nabavka.id', $nabavka->id);
 
-        return redirect()->route('nabavkas.index');
+        return redirect()->route('admin.nabavke.index');
     }
 
     public function destroy(Request $request, Nabavka $nabavka)
     {
         $nabavka->delete();
 
-        return redirect()->route('nabavkas.index');
+        return redirect()->route('admin.nabavke.index');
     }
 }
