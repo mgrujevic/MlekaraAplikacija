@@ -38,10 +38,7 @@ class NabavkaFeatureTest extends TestCase
 
         $this->actingAs($operater);
 
-        // Operater sme da otvori create
-        $this->get(route('operater.nabavke.create'))->assertOk();
-
-        // Operater sme da store (controller za operatera radi back()->with success)
+        // Operater sme da otvori create i store za nabavku (controller za operatera radi back()->with success)
         $payload = [
             'dobavljac_id' => $dobavljac->id,
             'sirovina_id' => $sirovina->id,
@@ -61,7 +58,7 @@ class NabavkaFeatureTest extends TestCase
             'kolicina' => 5,
         ]);
 
-        // 3) Menadžer prodaje ne sme ništa oko nabavke (ni operater rute)
+        // 3) Menadžer prodaje ne sme ništa oko nabavke
         auth()->logout();
 
         $menadzer = User::create([
