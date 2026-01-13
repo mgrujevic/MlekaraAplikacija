@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SirovinaStoreRequest;
 use App\Http\Requests\SirovinaUpdateRequest;
 use App\Models\Sirovina;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class SirovinaController extends Controller
 {

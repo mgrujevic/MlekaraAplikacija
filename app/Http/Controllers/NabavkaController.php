@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NabavkaStoreRequest;
 use App\Http\Requests\NabavkaUpdateRequest;
-use App\Models\Nabavka;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use App\Models\Dobavljac;
+use App\Models\Nabavka;
 use App\Models\Sirovina;
+use Illuminate\Http\Request;
 
 class NabavkaController extends Controller
 {
@@ -28,10 +26,10 @@ class NabavkaController extends Controller
         $sirovine = Sirovina::all();
 
         return view('nabavka.create', [
-        'dobavljaci' => $dobavljaci,
-        'sirovine'  => $sirovine,
-        'prefix'     => $this->routePrefix(),
-    ]);
+            'dobavljaci' => $dobavljaci,
+            'sirovine' => $sirovine,
+            'prefix' => $this->routePrefix(),
+        ]);
     }
 
     private function routePrefix(): string
@@ -66,7 +64,7 @@ class NabavkaController extends Controller
         return view('nabavka.edit', [
             'nabavka' => $nabavka,
             'sirovine' => Sirovina::orderBy('naziv')->get(),
-            'dobavljaci' => Dobavljac::orderBy('naziv')->get()
+            'dobavljaci' => Dobavljac::orderBy('naziv')->get(),
         ]);
     }
 

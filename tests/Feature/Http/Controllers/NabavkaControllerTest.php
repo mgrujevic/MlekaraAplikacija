@@ -31,7 +31,6 @@ final class NabavkaControllerTest extends TestCase
         $response->assertViewHas('nabavkas', $nabavkas);
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -40,7 +39,6 @@ final class NabavkaControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('nabavka.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -83,7 +81,6 @@ final class NabavkaControllerTest extends TestCase
         $response->assertSessionHas('nabavka.id', $nabavka->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -96,7 +93,6 @@ final class NabavkaControllerTest extends TestCase
         $response->assertViewHas('nabavka', $nabavka);
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -108,7 +104,6 @@ final class NabavkaControllerTest extends TestCase
         $response->assertViewIs('nabavka.edit');
         $response->assertViewHas('nabavka', $nabavka);
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -149,7 +144,6 @@ final class NabavkaControllerTest extends TestCase
         $this->assertEquals($kolicina, $nabavka->kolicina);
         $this->assertEquals($cena, $nabavka->cena);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

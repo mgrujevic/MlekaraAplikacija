@@ -4,16 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NarudzbinaStoreRequest;
 use App\Http\Requests\NarudzbinaUpdateRequest;
-use App\Models\Narudzbina;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
-use App\Models\Proizvod;
 use App\Models\Kupac;
+use App\Models\Narudzbina;
+use App\Models\Proizvod;
+use Illuminate\Http\Request;
 
 class NarudzbinaController extends Controller
 {
-
     private function routePrefix(): string
     {
         return request()->routeIs('admin.*') ? 'admin.' : 'menadzer.';
@@ -25,7 +22,7 @@ class NarudzbinaController extends Controller
 
         return view('narudzbina.index', [
             'narudzbinas' => $narudzbinas,
-            'prefix' => $this->routePrefix()
+            'prefix' => $this->routePrefix(),
         ]);
     }
 
@@ -37,7 +34,7 @@ class NarudzbinaController extends Controller
         return view('narudzbina.create', [
             'proizvods' => $proizvods,
             'kupacs' => $kupacs,
-            'prefix' => $this->routePrefix()
+            'prefix' => $this->routePrefix(),
         ]);
     }
 
@@ -76,7 +73,7 @@ class NarudzbinaController extends Controller
             'narudzbina' => $narudzbina,
             'prefix' => $this->routePrefix(),
             'proizvodi' => $proizvodi,
-            'kupci' => $kupci
+            'kupci' => $kupci,
         ]);
     }
 

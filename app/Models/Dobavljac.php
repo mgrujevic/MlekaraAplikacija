@@ -23,8 +23,7 @@ class Dobavljac extends Model
         'email',
     ];
 
-
-    protected $table = 'dobavljacs'; 
+    protected $table = 'dobavljacs';
 
     /**
      * Get the attributes that should be cast.

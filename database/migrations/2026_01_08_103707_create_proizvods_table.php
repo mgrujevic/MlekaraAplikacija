@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('proizvods', function (Blueprint $table) {
             $table->id();
             $table->string('naziv', 50);
-            $table->enum('jedinica_mere', ["kg","l","kom"]);
+            $table->enum('jedinica_mere', ['kg', 'l', 'kom']);
             $table->integer('ukupna_kolicina');
             $table->decimal('cena', 10, 2);
             $table->timestamps();

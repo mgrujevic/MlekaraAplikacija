@@ -13,7 +13,7 @@ class SirovinaFactory extends Factory
     {
         return [
             'naziv' => fake()->regexify('[A-Za-z0-9]{50}'),
-            'jedinica_mere' => fake()->randomElement(["kg","l"]),
+            'jedinica_mere' => fake()->randomElement(['kg', 'l']),
             'kolicina' => fake()->numberBetween(-10000, 10000),
         ];
     }

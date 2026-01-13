@@ -31,7 +31,6 @@ final class NarudzbinaControllerTest extends TestCase
         $response->assertViewHas('narudzbinas', $narudzbinas);
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -40,7 +39,6 @@ final class NarudzbinaControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('narudzbina.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -83,7 +81,6 @@ final class NarudzbinaControllerTest extends TestCase
         $response->assertSessionHas('narudzbina.id', $narudzbina->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -96,7 +93,6 @@ final class NarudzbinaControllerTest extends TestCase
         $response->assertViewHas('narudzbina', $narudzbina);
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -108,7 +104,6 @@ final class NarudzbinaControllerTest extends TestCase
         $response->assertViewIs('narudzbina.edit');
         $response->assertViewHas('narudzbina', $narudzbina);
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -149,7 +144,6 @@ final class NarudzbinaControllerTest extends TestCase
         $this->assertEquals($datum, $narudzbina->datum);
         $this->assertEquals($status, $narudzbina->status);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DobavljacStoreRequest;
 use App\Http\Requests\DobavljacUpdateRequest;
 use App\Models\Dobavljac;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
-use Illuminate\Validation\Rule;
 
 class DobavljacController extends Controller
 {
@@ -53,7 +50,6 @@ class DobavljacController extends Controller
     {
 
         $dobavljac->update($request->validated());
-        
 
         $request->session()->flash('dobavljac.id', $dobavljac->id);
 

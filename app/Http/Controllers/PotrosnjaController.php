@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PotrosnjaStoreRequest;
 use App\Http\Requests\PotrosnjaUpdateRequest;
 use App\Models\Potrosnja;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class PotrosnjaController extends Controller
 {

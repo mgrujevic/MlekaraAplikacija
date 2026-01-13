@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -17,6 +15,7 @@ class UserController extends Controller
         $users = User::all();
 
         $users = User::paginate(10);
+
         return view('user.index', compact('users'));
     }
 
@@ -50,7 +49,7 @@ class UserController extends Controller
     {
         $data = $request->validated();
 
-        if (!empty($data['lozinka'])) {
+        if (! empty($data['lozinka'])) {
             $data['lozinka'] = Hash::make($data['lozinka']);
         } else {
             unset($data['lozinka']);

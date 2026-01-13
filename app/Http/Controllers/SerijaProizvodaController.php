@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SerijaProizvodaStoreRequest;
 use App\Http\Requests\SerijaProizvodaUpdateRequest;
-use App\Models\SerijaProizvoda;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use App\Models\Proizvod;
+use App\Models\SerijaProizvoda;
+use Illuminate\Http\Request;
 
 class SerijaProizvodaController extends Controller
 {
@@ -32,7 +30,7 @@ class SerijaProizvodaController extends Controller
 
         return view('serijaProizvoda.create', [
             'proizvodi' => $proizvodi,
-            'prefix' => $this->routePrefix()
+            'prefix' => $this->routePrefix(),
         ]);
     }
 
@@ -63,7 +61,7 @@ class SerijaProizvodaController extends Controller
 
         return view('serijaProizvoda.edit', [
             'serijaProizvoda' => $serijaProizvoda,
-            'proizvodi' => $proizvodi
+            'proizvodi' => $proizvodi,
         ]);
     }
 

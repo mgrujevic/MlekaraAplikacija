@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Nabavka extends Model
 {
@@ -49,6 +48,7 @@ class Nabavka extends Model
             'id'             // PK u dobavljacs
         );
     }
+
     public function sirovina()
     {
         return $this->belongsTo(

@@ -18,7 +18,7 @@ class NarudzbinaFactory extends Factory
             'kupac_id' => Kupci::factory(),
             'kolicina' => fake()->numberBetween(-10000, 10000),
             'datum' => fake()->date(),
-            'status' => fake()->randomElement(["kreirana","u_obradi","isporucena","otkazana"]),
+            'status' => fake()->randomElement(['kreirana', 'u_obradi', 'isporucena', 'otkazana']),
         ];
     }
 }

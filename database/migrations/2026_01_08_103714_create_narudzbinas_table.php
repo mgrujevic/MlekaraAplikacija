@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('kupac_id')->constrained('kupacs');
             $table->integer('kolicina');
             $table->date('datum');
-            $table->enum('status', ["kreirana","u_obradi","isporucena","otkazana"]);
+            $table->enum('status', ['kreirana', 'u_obradi', 'isporucena', 'otkazana']);
             $table->timestamps();
         });
 

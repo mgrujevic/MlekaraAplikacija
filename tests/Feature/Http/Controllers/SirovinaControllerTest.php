@@ -28,7 +28,6 @@ final class SirovinaControllerTest extends TestCase
         $response->assertViewHas('sirovinas', $sirovinas);
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -37,7 +36,6 @@ final class SirovinaControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('sirovina.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -74,7 +72,6 @@ final class SirovinaControllerTest extends TestCase
         $response->assertSessionHas('sirovina.id', $sirovina->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -87,7 +84,6 @@ final class SirovinaControllerTest extends TestCase
         $response->assertViewHas('sirovina', $sirovina);
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -99,7 +95,6 @@ final class SirovinaControllerTest extends TestCase
         $response->assertViewIs('sirovina.edit');
         $response->assertViewHas('sirovina', $sirovina);
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -134,7 +129,6 @@ final class SirovinaControllerTest extends TestCase
         $this->assertEquals($jedinica_mere, $sirovina->jedinica_mere);
         $this->assertEquals($kolicina, $sirovina->kolicina);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

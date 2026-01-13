@@ -1,9 +1,8 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Narudzbina;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Narudzbina;
 use Illuminate\Database\Seeder;
 
 class NarudzbinaSeeder extends Seeder

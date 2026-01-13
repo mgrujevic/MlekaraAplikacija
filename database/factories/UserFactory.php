@@ -15,7 +15,7 @@ class UserFactory extends Factory
             'ime' => fake()->regexify('[A-Za-z0-9]{50}'),
             'prezime' => fake()->regexify('[A-Za-z0-9]{50}'),
             'korisnicko_ime' => fake()->regexify('[A-Za-z0-9]{20}'),
-            'uloga' => fake()->randomElement(["administrator","operater","menadzer_prodaje"]),
+            'uloga' => fake()->randomElement(['administrator', 'operater', 'menadzer_prodaje']),
             'lozinka' => fake()->regexify('[A-Za-z0-9]{255}'),
         ];
     }

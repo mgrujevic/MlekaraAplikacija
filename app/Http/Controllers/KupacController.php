@@ -5,13 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\KupacStoreRequest;
 use App\Http\Requests\KupacUpdateRequest;
 use App\Models\Kupac;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class KupacController extends Controller
 {
-
     private function routePrefix(): string
     {
         return request()->routeIs('admin.*') ? 'admin.' : 'menadzer.';
@@ -23,14 +20,14 @@ class KupacController extends Controller
 
         return view('kupac.index', [
             'kupacs' => $kupacs,
-            'prefix' => $this->routePrefix()
+            'prefix' => $this->routePrefix(),
         ]);
     }
 
     public function create(Request $request)
     {
         return view('kupac.create', [
-            'prefix' => $this->routePrefix()
+            'prefix' => $this->routePrefix(),
         ]);
     }
 
@@ -64,7 +61,7 @@ class KupacController extends Controller
     {
         return view('kupac.edit', [
             'kupac' => $kupac,
-            'prefix' => $this->routePrefix()
+            'prefix' => $this->routePrefix(),
         ]);
     }
 

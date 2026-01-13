@@ -27,7 +27,7 @@ class UserUpdateRequest extends FormRequest
                 'required', 'string', 'max:20',
                 Rule::unique('users', 'korisnicko_ime')->ignore($this->route('user')->id),
             ],
-            'uloga' => ['required', Rule::in(['administrator','operater','menadzer_prodaje'])],
+            'uloga' => ['required', Rule::in(['administrator', 'operater', 'menadzer_prodaje'])],
             'lozinka' => ['nullable', 'string', 'min:4', 'max:255'],
         ];
     }

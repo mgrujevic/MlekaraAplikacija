@@ -30,7 +30,6 @@ final class SerijaProizvodaControllerTest extends TestCase
         $response->assertViewHas('serijaProizvodas', $serijaProizvodas);
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -39,7 +38,6 @@ final class SerijaProizvodaControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('serijaProizvoda.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -76,7 +74,6 @@ final class SerijaProizvodaControllerTest extends TestCase
         $response->assertSessionHas('serijaProizvoda.id', $serijaProizvoda->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -89,7 +86,6 @@ final class SerijaProizvodaControllerTest extends TestCase
         $response->assertViewHas('serijaProizvoda', $serijaProizvoda);
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -101,7 +97,6 @@ final class SerijaProizvodaControllerTest extends TestCase
         $response->assertViewIs('serijaProizvoda.edit');
         $response->assertViewHas('serijaProizvoda', $serijaProizvoda);
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -136,7 +131,6 @@ final class SerijaProizvodaControllerTest extends TestCase
         $this->assertEquals($proizvedena_kolicina, $serijaProizvoda->proizvedena_kolicina);
         $this->assertEquals($datum_proizvodnje, $serijaProizvoda->datum_proizvodnje);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

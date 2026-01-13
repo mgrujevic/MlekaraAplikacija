@@ -1,20 +1,18 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProizvodController;
-use App\Http\Controllers\SirovinaController;
 use App\Http\Controllers\DobavljacController;
-use App\Http\Controllers\NabavkaController;
-use App\Http\Controllers\SerijaProizvodaController;
-use App\Http\Controllers\PotrosnjaController;
 use App\Http\Controllers\KupacController;
+use App\Http\Controllers\NabavkaController;
 use App\Http\Controllers\NarudzbinaController;
+use App\Http\Controllers\PotrosnjaController;
+use App\Http\Controllers\ProizvodController;
+use App\Http\Controllers\SerijaProizvodaController;
+use App\Http\Controllers\SirovinaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
-
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -31,10 +29,8 @@ Route::get('/dashboard', function () {
     };
 })->middleware('auth')->name('dashboard');
 
-
-
 Route::middleware('auth')->group(function () {
-     // ADMIN
+    // ADMIN
     Route::prefix('admin')->name('admin.')->middleware('role:administrator')->group(function () {
 
         Route::get('/meni', function () {
@@ -44,14 +40,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/prijem-podmeni', function () {
             return view('admin.prijem-podmeni');
         })->name('prijem-podmeni');
-        
+
         Route::get('/prodaja-podmeni', function () {
             return view('admin.prodaja-podmeni');
         })->name('prodaja-podmeni');
 
         Route::resource('korisnici', UserController::class)->parameters(['korisnici' => 'user']);
         Route::resource('proizvodi', ProizvodController::class);
-        Route::resource('sirovine', SirovinaController::class)->parameters(['sirovine' => 'sirovina']);;
+        Route::resource('sirovine', SirovinaController::class)->parameters(['sirovine' => 'sirovina']);
         Route::resource('dobavljaci', DobavljacController::class)->parameters(['dobavljaci' => 'dobavljac']);
         Route::resource('nabavke', NabavkaController::class)->parameters(['nabavke' => 'nabavka']);
         Route::resource('serije-proizvoda', SerijaProizvodaController::class)->parameters(['serije-proizvoda' => 'serijaProizvoda']);

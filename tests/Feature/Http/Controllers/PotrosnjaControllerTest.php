@@ -30,7 +30,6 @@ final class PotrosnjaControllerTest extends TestCase
         $response->assertViewHas('potrosnjas', $potrosnjas);
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -39,7 +38,6 @@ final class PotrosnjaControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('potrosnja.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -76,7 +74,6 @@ final class PotrosnjaControllerTest extends TestCase
         $response->assertSessionHas('potrosnja.id', $potrosnja->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -89,7 +86,6 @@ final class PotrosnjaControllerTest extends TestCase
         $response->assertViewHas('potrosnja', $potrosnja);
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -101,7 +97,6 @@ final class PotrosnjaControllerTest extends TestCase
         $response->assertViewIs('potrosnja.edit');
         $response->assertViewHas('potrosnja', $potrosnja);
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -136,7 +131,6 @@ final class PotrosnjaControllerTest extends TestCase
         $this->assertEquals($sirovina->id, $potrosnja->sirovina_id);
         $this->assertEquals($kolicina, $potrosnja->kolicina);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

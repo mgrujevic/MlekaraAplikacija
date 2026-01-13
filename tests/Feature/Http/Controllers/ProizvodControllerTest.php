@@ -28,7 +28,6 @@ final class ProizvodControllerTest extends TestCase
         $response->assertViewHas('proizvods', $proizvods);
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -37,7 +36,6 @@ final class ProizvodControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('proizvod.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -77,7 +75,6 @@ final class ProizvodControllerTest extends TestCase
         $response->assertSessionHas('proizvod.id', $proizvod->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -90,7 +87,6 @@ final class ProizvodControllerTest extends TestCase
         $response->assertViewHas('proizvod', $proizvod);
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -102,7 +98,6 @@ final class ProizvodControllerTest extends TestCase
         $response->assertViewIs('proizvod.edit');
         $response->assertViewHas('proizvod', $proizvod);
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -140,7 +135,6 @@ final class ProizvodControllerTest extends TestCase
         $this->assertEquals($ukupna_kolicina, $proizvod->ukupna_kolicina);
         $this->assertEquals($cena, $proizvod->cena);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

@@ -28,7 +28,6 @@ final class DobavljacControllerTest extends TestCase
         $response->assertViewHas('dobavljacs', $dobavljacs);
     }
 
-
     #[Test]
     public function create_displays_view(): void
     {
@@ -37,7 +36,6 @@ final class DobavljacControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('dobavljac.create');
     }
-
 
     #[Test]
     public function store_uses_form_request_validation(): void
@@ -68,7 +66,6 @@ final class DobavljacControllerTest extends TestCase
         $response->assertSessionHas('dobavljac.id', $dobavljac->id);
     }
 
-
     #[Test]
     public function show_displays_view(): void
     {
@@ -81,7 +78,6 @@ final class DobavljacControllerTest extends TestCase
         $response->assertViewHas('dobavljac', $dobavljac);
     }
 
-
     #[Test]
     public function edit_displays_view(): void
     {
@@ -93,7 +89,6 @@ final class DobavljacControllerTest extends TestCase
         $response->assertViewIs('dobavljac.edit');
         $response->assertViewHas('dobavljac', $dobavljac);
     }
-
 
     #[Test]
     public function update_uses_form_request_validation(): void
@@ -122,7 +117,6 @@ final class DobavljacControllerTest extends TestCase
 
         $this->assertEquals($naziv, $dobavljac->naziv);
     }
-
 
     #[Test]
     public function destroy_deletes_and_redirects(): void

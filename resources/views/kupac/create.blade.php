@@ -71,28 +71,26 @@
         {{-- Dugmad --}}
         <div class="flex gap-4">
             <button type="submit" class="px-4 py-2 border-4 border-slate-300 rounded-lg
-        bg-slate-50 text-slate-700
-        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
-        shadow-sm transition-all duration-200">
+                bg-slate-50 text-slate-700
+                hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+                shadow-sm transition-all duration-200">
                 Sačuvaj
             </button>
 
             @if(auth()->user()->uloga === 'administrator')
-            <div class="mt-6">
                 <a href="{{ route('admin.kupci.index') }}"
                 class="px-4 py-2 border-4 border-slate-300 rounded-lg
-        bg-slate-50 text-slate-700
-        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
-        shadow-sm transition-all duration-200">
+                bg-slate-50 text-slate-700
+                hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+                shadow-sm transition-all duration-200">
                     Nazad
                 </a>
-            </div>
             @else
                 <a href="{{ route('menadzer.kupci.index') }}"
                 class="px-4 py-2 border-4 border-slate-300 rounded-lg
-        bg-slate-50 text-slate-700
-        hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
-        shadow-sm transition-all duration-200">
+                    bg-slate-50 text-slate-700
+                    hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900
+                    shadow-sm transition-all duration-200">
                     Nazad
                 </a>
             @endif
